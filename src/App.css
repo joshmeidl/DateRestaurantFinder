@@ -36,3 +36,66 @@
     transform: rotate(360deg);
   }
 }
+.answerButtonNormal {
+  object-fit: cover;
+  position: relative;
+  width: 4em;
+  height: 4em;
+  max-height: 4em;
+  max-width: 4em;
+  margin-left: 8%;
+  margin-right: 8%;
+  float: left;
+}
+
+.answerButtonGrayed {
+  object-fit: cover;
+  position: relative;
+  width: 4em;
+  height: 4em;
+  max-height: 4em;
+  max-width: 4em;
+  margin-left: 8%;
+  margin-right: 8%;
+  float: left;
+  opacity: 0.3;
+}
+
+.buttonGroup {
+  display: block;
+  position: absolute;
+  width: 100%;
+  min-width: 100% !important;
+  margin-left: 1em;
+  margin-right: 1em;
+  min-height: auto;
+  max-height: 5em;
+  margin-bottom: 10em;
+}
+
+.answerText {
+  font-size: 6em;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: whitesmoke;
+  background-color: maroon;
+  position: absolute;
+  text-align: center;
+  top: 500%;
+  left: 500%;
+  transform: translate(-50%, -50%);
+}
+.homeTitle{
+
+}
+.title {
+  text-align: center;
+  color: whitesmoke;
+  font-size: 10em;
+  font-family: fantasy;
+  background-color: maroon;
+}
+.question {
+  text-align: center;
+  font-size: 8em;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
