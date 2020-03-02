@@ -2,33 +2,25 @@ import React, { Component } from "react";
 import Answer from "./Answer";
 import Autocomplete from "./Autocomplete"
 
-class Question extends Component {
+class Question extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      List: []
+    }
+  }
+  componentDidMount() {
+    this.setState({
+      List: this.props.suggestions
+    })
+  }
   render() {
+    console.log(this.state.List);
     return (
       <div>
-        <h1 className="question">{this.props.question.questionAsked}</h1>
+        <label>{this.props.question}</label>
         <div className="buttonGroup">
-          <Autocomplete
-          suggestions={[
-            "Alligator",
-            "Bask",
-            "Crocodilian",
-            "Death Roll",
-            "Eggs",
-            "Jaws",
-            "Reptile",
-            "Solitary",
-            "Tail",
-            "Wetlands"
-          ]}
-        />
-          {/* {this.props.question.answers.map(answer => (
-            <Answer
-              key={answer.id}
-              onAnswer={this.props.onAnswer}
-              answer={answer}
-            ></Answer>
-          ))} */}
+          <Autocomplete suggestions={this.state.List}/>
         </div>
       </div>
     );
