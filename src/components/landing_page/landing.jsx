@@ -12,8 +12,8 @@ class Landing extends Component {
   }
   render() {
     return(
-      <div className="container-fluid">
-        <Navbar />
+      <div className="">
+        {/* <Navbar /> */}
         <Router>
           <div>  
         

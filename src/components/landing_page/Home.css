@@ -8,13 +8,15 @@
 
 .img {
   height: 30em;
+  width: 100%;
   background-image: url("home.jpg");
   background-position: center;
-  background-size: cover;
+  /* background-size: cover; */
+  background-repeat: no-repeat;
   display: grid;
   justify-content: center;
   align-items: center;
-  position: relative;
+  /* position: relative; */
 }
 
 .layer {
@@ -30,12 +32,29 @@
   text-align: center;
   color: aliceblue;
   padding: 1em;
-  position: absolute;
-  left: 25%;
-  top: 35%;
+  /* position: absolute; */
+  /* left: 15%;
+  top: 35%; */
   font-family: 'Raleway';
 }
-h1 {
+.header {
   /* font-size: 10em; */
   font-size: 5em;
+}
+
+.title {
+  /* left: 40%;
+  top: 0; */
+  /* position: absolute; */
+  color: azure;
+}
+.nav {
+  /* background-color: rgb(245, 218, 226);
+  opacity: 0.1;
+  padding: 1em;
+  color: black;
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%; */
 }

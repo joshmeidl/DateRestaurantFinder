@@ -21,7 +21,9 @@ class Quiz extends Component {
     this.setState({ answer });
   };
 
-  render() {  
+  render() {
+    const important = "Please share location to display restaurants around you."
+    const msg = "Following each question, input your answer into the text box below it. Once you are finished with the quiz, click the submit button at the bottom to recieve your results!"
     const quiz = questionArray.map(item => 
       <Question 
         key={item.id} 
@@ -30,6 +32,9 @@ class Quiz extends Component {
     return (
       <div>
         <h1 className="quizTitle">Date Night Restaurant Finder Quiz </h1>
+        <hr />
+        <p className="bold">{important}</p><p>{msg}</p>
+        <hr />
         <div>
           {quiz}
         </div>
