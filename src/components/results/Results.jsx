@@ -70,6 +70,7 @@ class Results extends Component {
         </span>
       );
     } else {
+      console.log(this.state.data);
       const restaurants = this.state.data.map(restaurant => (
         <Restaurant
           key={restaurants.id}
@@ -82,6 +83,8 @@ class Results extends Component {
           image_url={restaurant.image_url}
         />
       ));
+      console.log("restaurants: ");
+      console.log(restaurants);
       return restaurants;
     }
   };
