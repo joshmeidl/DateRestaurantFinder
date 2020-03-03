@@ -28,16 +28,12 @@ class Landing extends Component {
               <Results />
             </Route>
         </Switch>
-        <ul>
-              <li>
-                <Link to="/quiz" className="btn btn-primary btn-lg">Take Quiz</Link>
-              </li>
-              <li>
-                <Link to="/results" className="btn btn-primary btn-lg">Get Results</Link>
-              </li>
-            </ul>
-            <hr className="my-4"/>
-
+        <div>
+          <Link to="/" className="btn btn-link">Home</Link>
+          <Link to="/quiz" className="btn btn-link">Take Quiz</Link>
+          <Link to="/results" className="btn btn-link">Get Results</Link>
+        </div>
+        <hr className="my-4"/>
       </div>
       </Router>
       </div>
