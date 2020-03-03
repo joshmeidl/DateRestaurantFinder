@@ -70,11 +70,19 @@ class Results extends Component {
         </span>
       );
     } else {
-      return <h1>Data here</h1>;
-      // return {this.state.data.map(restaurant => {
-      //   <Restaurant
-      //   key: {restaurant.id}
-      //   restaurant: {restaurant} / >
+      const restaurants = this.state.data.map(restaurant => (
+        <Restaurant
+          key={restaurants.id}
+          rating={restaurant.rating}
+          price={restaurant.price}
+          categories={restaurant.categories}
+          name={restaurant.name}
+          url={restaurant.url}
+          distance={restaurant.distance}
+          image_url={restaurant.image_url}
+        />
+      ));
+      return restaurants;
     }
   };
 
