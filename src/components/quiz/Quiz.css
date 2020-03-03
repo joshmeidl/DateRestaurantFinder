@@ -1,24 +1,24 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Raleway&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap");
 
 .question {
   color: whitesmoke;
   background-color: silver;
   font-size: 2em;
   text-align: center;
-  padding-top:2%;
-  padding-bottom:2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   margin-left: 1%;
   margin-right: 1%;
-  font-family: 'Raleway';
+  font-family: "Raleway";
 }
 
 .bold {
   font-weight: bolder;
 }
-.quizTitle{
+.quizTitle {
   color: whitesmoke;
   background-color: maroon;
   text-align: center;
-  font-family: 'Raleway';
+  font-family: "Raleway";
 }
