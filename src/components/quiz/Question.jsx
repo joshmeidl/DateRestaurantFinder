@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Answer from "./Answer";
-import Autocomplete from "./Autocomplete"
+import Autocomplete from "./Autocomplete";
+import './Quiz.css';
 
 class Question extends React.Component {
   constructor(props) {
@@ -15,10 +16,9 @@ class Question extends React.Component {
     })
   }
   render() {
-    console.log(this.state.List);
     return (
       <div>
-        <label>{this.props.question}</label>
+        <h1 className="question">{this.props.question}</h1>
         <div className="buttonGroup">
           <Autocomplete suggestions={this.state.List}/>
         </div>

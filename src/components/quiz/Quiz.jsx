@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Question from "./Question";
-import questionArray from "./List"
+import questionArray from "./List";
+import Results from "./../results/Results.jsx";
+import './Quiz.css';
+
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Quiz extends Component {
   constructor(props) {
@@ -17,48 +21,23 @@ class Quiz extends Component {
     this.setState({ answer });
   };
 
-  /*resetAnswers = () => {
-    const answers = this.state.answers.map(c => {
-      c.selected = false;
-      return c;
-    });
-    this.setState({ answers });
-  };*/
-  // List.forEach(function(obj) {
-  //   console.log(obj);
-  //   }) 
-  render() {
-    questionArray.forEach(element => {
-      console.log(element.answers)
-    });
+  render() {  
     const quiz = questionArray.map(item => 
       <Question 
         key={item.id} 
         question={item.question}
-        suggestion={item.answers}/>)
+        suggestions={item.answers}/>)
     return (
       <div>
-        <h1 className="title">Date Night Restaurant Finder Quiz </h1>
+        <h1 className="quizTitle">Date Night Restaurant Finder Quiz </h1>
         <div>
           {quiz}
-          
-            
-          {/* <Question
-              question="What type of food?"
-              suggestions={[
-                "Alligator",
-                "Bask",
-                "Crocodilian",
-                "Death Roll",
-                "Eggs",
-                "Jaws",
-                "Reptile",
-                "Solitary",
-                "Tail",
-                "Wetlands"
-              ]}
-        /> */}
         </div>
+        <Router>
+          <br></br>
+            <p className="lead"><Link to="/Results" className="btn btn-primary btn-lg">Submit</Link></p>
+            <Route path="/Results" component={Results} />
+          </Router>
       </div>
     );
   }
