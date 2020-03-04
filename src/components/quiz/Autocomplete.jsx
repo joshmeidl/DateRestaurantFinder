@@ -128,14 +128,18 @@ class Autocomplete extends Component {
 
     return (
       <Fragment>
-        <input
-          type="text"
-          className="form-control"
-          onChange={onChange}
-          onKeyDown={onKeyDown}
-          value={userInput}
-        />
+        <div className="input">
+          <h1 className="question">{this.props.question}</h1>
+          <input
+            type="text"
+            className="answer"
+            onChange={onChange}
+            onKeyDown={onKeyDown}
+            value={userInput}
+            required
+          />
         {suggestionsListComponent}
+        </div>
       </Fragment>
     );
   }

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:300&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Julius+Sans+One&display=swap");
+
 body {
   margin: 0;
   padding: 0;
@@ -14,7 +18,50 @@ code {
     monospace;
 }
 
-.container-fluid {
-  margin: 0;
-  padding: 0;
+input {
+  padding: 1em;
+  border: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.2em;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  margin: 0.5em;
+  font-size: 1.4em;
+}
+
+.input {
+  display: grid;
+  border: 1px solid lightgray;
+  margin: 1em;
+  border-radius: 0.2em;
+}
+
+button {
+  border-radius: 0.2em;
+  box-shadow: 5px 2px 10px 3px #494848;
+  font-family: 'Ubuntu', sans-serif;
+  padding: 1em;
+  margin: 0.25em;
+  text-decoration: none;
+  border: none;
+  transition: background 250ms ease-in-out, transform 150ms ease;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 1px solid #fff;
+  outline-offset: -4px;
+}
+
+button:active {
+  transform: scale(0.99);
+}
+
+a, a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
 }

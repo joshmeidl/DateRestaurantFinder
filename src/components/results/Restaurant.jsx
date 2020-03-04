@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Results.css";
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 class Restaurant extends Component {
   constructor(props) {
@@ -43,14 +43,21 @@ class Restaurant extends Component {
 
   formatData = () => {
     return (
+      <Router>
       <ul>
         <li>{this.state.rating}</li>
         <li>{this.state.price}</li>
-        <li>{this.state.url}</li>
         <li>{this.state.distance}</li>
       </ul>
-    );
-  };
+      <Link to="./restaurantWebsite" className="btn btn-link">{this.state.url}</Link>
+      <Switch>
+      <Route path='/restaurantWebsite' component={() => { 
+     window.location.assign("www.google.com"); 
+     return null;
+}}/>
+      </Switch>
+      </Router>
+    );}
 
   render() {
     return (
@@ -72,17 +79,7 @@ class Restaurant extends Component {
           <Switch>
             <Route path="/expand">
               <hr />
-              <ul>
-                <li>
-                  <p>{"cateogries: " + this.state.categories}</p>
-                </li>
-                <li>
-                  <p>{"rating: " + this.state.rating}</p>
-                </li>
-                <li>
-                  <p>{this.state.url}</p>
-                </li>
-              </ul>
+              {this.formatData()}
             </Route>
             <Route path="/"></Route>
           </Switch>

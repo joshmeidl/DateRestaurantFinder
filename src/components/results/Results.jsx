@@ -94,7 +94,7 @@ class Results extends Component {
         <hr />
         <Restaurant
           id={1}
-          rating={5}
+          rating={"5"}
           price={"$$$"}
           categories={["Mexican", "Tacos"]}
           name={"Taco Bell"}
@@ -106,8 +106,8 @@ class Results extends Component {
         />
         <hr />
         <Restaurant
-          id={1}
-          rating={5}
+          id={2}
+          rating={"5"}
           price={"$$$"}
           categories={["Mexican", "Tacos"]}
           name={"Baja Fresh Mexican Cuisine"}

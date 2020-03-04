@@ -18,9 +18,8 @@ class Question extends React.Component {
   render() {
     return (
       <div>
-        <h1 className="question">{this.props.question}</h1>
         <div className="buttonGroup">
-          <Autocomplete suggestions={this.state.List} />
+          <Autocomplete question={this.props.question} suggestions={this.state.List} />
         </div>
       </div>
     );

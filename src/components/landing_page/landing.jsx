@@ -21,7 +21,6 @@ class Landing extends Component {
       <div>
         <Router>
           <div>  
-        
         <Switch>
             <Route exact path="/">
               <Home />
@@ -33,13 +32,7 @@ class Landing extends Component {
               <Results />
             </Route>
         </Switch>
-        <div>
-          <Link to="/" className="btn btn-link">Home</Link>
-          <Link to="/quiz" className="btn btn-link">Take Quiz</Link>
-          <Link to="/results" className="btn btn-link">Get Results</Link>
         </div>
-        <hr className="my-4"/>
-      </div>
       </Router>
     </div>
     );

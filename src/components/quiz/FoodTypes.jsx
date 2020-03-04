@@ -1,4 +1,4 @@
-const questionArray = [
+const FoodTypes = [
   {
     id: 0,
     question: "What type of food would you like to eat?",
@@ -38,6 +38,7 @@ const questionArray = [
       "Hawaiian",
       "Hungarian",
       "International",
+      "Indian",
       "Irish",
       "Italian",
       "Japanese",
@@ -87,40 +88,7 @@ const questionArray = [
       "Wok",
       "Wraps"
     ]
-  },
-  {
-    id: 1,
-    question: "What city do you live in?",
-    answers: ["$20", "$50", "$100", "My Entire Paycheck"]
-  },
-  {
-    id: 2,
-    question: "How far are you willing to commute?",
-    answers: [
-      "Delivery Please",
-      "0 miles",
-      "5 miles",
-      "10 miles",
-      "15 miles",
-      "20 miles",
-      "25 miles"
-    ]
-  },
-  {
-    id: 3,
-    question: "Is this casual or formal/celebratory?",
-    answers: ["Casual", "Formal"]
-  },
-  {
-    id: 4,
-    question: "What is your budget?",
-    answers: ["$20", "$50", "$100", "My Entire Paycheck"]
-  },
-  {
-    id: 5,
-    question: "ekajf",
-    answers: ["$20", "$50", "$100", "My Entire Paycheck"]
   }
 ];
 
-export default questionArray;
+export default FoodTypes;
