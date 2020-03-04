@@ -4,11 +4,17 @@ import Quiz from "./../quiz/Quiz.jsx";
 import Results from "./../results/Results.jsx";
 import Home from "./home.jsx";
 
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
 class Landing extends Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
   render() {
     return(
@@ -39,8 +45,5 @@ class Landing extends Component {
     );
   }
 }
-
-
-
 
 export default Landing;

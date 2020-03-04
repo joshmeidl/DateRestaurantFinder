@@ -1,27 +1,34 @@
-import React, { Component } from 'react';
-import Restaurant from './Restaurant.jsx';
-import './Results.css'
-import $ from "jquery"
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import React, { Component } from "react";
+import Restaurant from "./Restaurant.jsx";
+import "./Results.css";
+import $ from "jquery";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
 class Results extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       data: []
-    }
+    };
   }
-  
+
   componentDidMount() {
-    const API_Key = "Bearer M42T3szZIG5AZIws_n8Y2XvvAXGZa6x77mq-kLwHs7z9U7dTpVX7_vfW7Azy8uiDKYxipXM9CePFA8m2CzsRtSEXXgHF2Sc7WiBAWu3lh5OLWkx0K3mpxli5DJ5UXnYx";
+    const API_Key =
+      "Bearer M42T3szZIG5AZIws_n8Y2XvvAXGZa6x77mq-kLwHs7z9U7dTpVX7_vfW7Azy8uiDKYxipXM9CePFA8m2CzsRtSEXXgHF2Sc7WiBAWu3lh5OLWkx0K3mpxli5DJ5UXnYx";
     const config = {
       headers: {
-        'Authorization': API_Key,
-        method: 'GET'
+        Authorization: API_Key,
+        method: "GET"
       },
       params: {
-        term: 'tacos',
-        location: 'NYC'
+        term: "tacos",
+        location: "NYC"
       }
     };
     // fetch("https://api.yelp.com/v3/businesses/search", config)
@@ -31,7 +38,8 @@ class Results extends Component {
     //   this.setState({data: business});
     // });
 
-    let myurl = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=restaurant&location=boston";
+    let myurl =
+      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=restaurant&location=boston";
     let results;
     $.ajax({
        url: myurl,
@@ -47,9 +55,9 @@ class Results extends Component {
     });   
     this.setState({
       data: results
-    });   
+    });
   }
-  
+
   displayData = () => {
     const msg = "Error: no results, please complete the quiz.";
     return <span><h1 className= "error">{msg}</h1><Link to="/quiz" className="badge badge-light">QUIZ</Link></span>

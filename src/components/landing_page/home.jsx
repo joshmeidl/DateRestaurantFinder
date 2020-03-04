@@ -6,8 +6,9 @@ import Results from './../results/Results'
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
 
 class Home extends Component {
-  render() { 
-    const msg = "Going on a date, but can't find a restaurant? Our online quiz allows you and your date to find the restaurant most compatible for the two of you. Click the link below to start!";
+  render() {
+    const msg =
+      "Going on a date, but can't find a restaurant? Our online quiz allows you and your date to find the restaurant most compatible for the two of you. Click the link below to start!";
     return (
     <div>
       <div className="img jumbotron">
@@ -18,9 +19,9 @@ class Home extends Component {
         <hr className="my-4"/>
       </div>
       <Router>
-          <div>  
+        <div>  
         
-        <Switch>
+          <Switch>
             <Route exact path="/">
               <Home />
             </Route>
@@ -30,17 +31,17 @@ class Home extends Component {
             <Route path="/results">
               <Results />
             </Route>
-        </Switch>
-        <div>
-          <Link to="/" className="btn btn-link">Home</Link>
-          <Link to="/quiz" className="btn btn-link">Take Quiz</Link>
-          <Link to="/results" className="btn btn-link">Get Results</Link>
-        </div>
-        <hr className="my-4"/>
+          </Switch>
+          <div>
+            <Link to="/" className="btn btn-link">Home</Link>
+            <Link to="/quiz" className="btn btn-link">Take Quiz</Link>
+            <Link to="/results" className="btn btn-link">Get Results</Link>
+          </div>
+          <hr className="my-4"/>
       </div>
       </Router>
     </div>);
     };
   }
- 
+
 export default Home;
