@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 import "./Results.css";
-import { BrowserRouter as Router, Route, Link, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
 class Restaurant extends Component {
   constructor(props) {
@@ -8,6 +14,8 @@ class Restaurant extends Component {
     this.state = {
       id: "",
       rating: "",
+      phone: "",
+      isOpen: true,
       price: "",
       categories: [],
       name: "",
@@ -32,6 +40,8 @@ class Restaurant extends Component {
     this.setState({
       id: this.props.id,
       rating: this.props.rating,
+      phone: this.props.phone,
+      isOpen: this.props.isOpen,
       price: this.props.price,
       categories: this.props.categories,
       name: this.props.name,
@@ -41,45 +51,75 @@ class Restaurant extends Component {
     });
   }
 
-  formatData = () => {
+  openStatus = () => {
+    if (this.state.isOpen) {
+      return <h1 className="openText">open</h1>;
+    } else {
+      return <h1 className="closeText">closed</h1>;
+    }
+  };
+
+  displayCategories = () => {
+    const categories = (
+      <div className="list-group">
+        {this.state.categories.map(category => (
+          <p className="category">{category}</p>
+        ))}
+      </div>
+    );
+    return categories;
+  };
+
+  formatDetails = () => {
     return (
       <Router>
-      <ul>
-        <li>{this.state.rating}</li>
-        <li>{this.state.price}</li>
-        <li>{this.state.distance}</li>
-      </ul>
-      <Link to="./restaurantWebsite" className="btn btn-link">{this.state.url}</Link>
-      <Switch>
-      <Route path='/restaurantWebsite' component={() => { 
-     window.location.assign("www.google.com"); 
-     return null;
-}}/>
-      </Switch>
+        {this.openStatus()}
+        <ol>
+          <li>{this.state.rating}</li>
+          <li>{this.state.price}</li>
+          <li>{this.state.distance}</li>
+        </ol>
+        <Link to="./restaurantWebsite" className="btn btn-link">
+          {this.state.url}
+        </Link>
+        <Switch>
+          <Route
+            path="/restaurantWebsite"
+            component={() => {
+              window.location.replace("www.google.com");
+              return null;
+            }}
+          />
+        </Switch>
       </Router>
-    );}
+    );
+  };
 
   render() {
     return (
       <div>
         <Router>
-          <span>
-            <h1 className="restaurantTitle">{this.state.name}</h1>
-            <img className="restaurantIMG" src={this.state.image_url} />
-          </span>
-          <br></br>
-          <div>
-            <Link to="/expand" className="btn btn-link">
-              expand details
+          <div className="media">
+            <button className="btn btn-sm btn-light">Save</button>
+            <div className="media-body">
+              <h5 className="restaurantTitle">{this.state.name}</h5>
+            </div>
+            {this.displayCategories()}
+            <img src={this.state.image_url} className="restaurantIMG" />
+          </div>
+          <div className="expand">
+            <Link to="/expand" className="btn-sm btn-dark">
+              expand
             </Link>
-            <Link to="/" className="btn btn-link">
-              minimize details
+            <Link to="/" className="btn-sm btn-outline-dark">
+              minimize
             </Link>
           </div>
+
           <Switch>
             <Route path="/expand">
               <hr />
-              {this.formatData()}
+              {this.formatDetails()}
             </Route>
             <Route path="/"></Route>
           </Switch>

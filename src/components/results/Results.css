@@ -6,11 +6,35 @@
 }
 
 .restaurantTitle {
-  font-size: 6em;
-  margin-right: 4em;
+  font-size: 4em;
+  margin-left: 0.5em;
   color: black;
   float: left;
 }
-
 .restaurantIMG {
+  object-fit: scale-down;
+  height: 10em;
+  width: 15em;
+}
+
+.openText {
+  color: rgb(10, 83, 10);
+  font-family: Impact;
+  font-size: 1em;
+}
+
+.closeText {
+  color: rgb(139, 30, 30);
+  font-family: Impact;
+  font-size: 1em;
+}
+
+.category {
+  margin-right: 0.5em;
+  background-color: #402f80;
+  color: white;
+}
+
+.expand {
+  margin-left: 6em;
 }
