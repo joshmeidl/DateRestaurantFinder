@@ -12,8 +12,7 @@ class Landing extends Component {
   }
   render() {
     return(
-      <div className="">
-        {/* <Navbar /> */}
+      <div>
         <Router>
           <div>  
         
@@ -36,7 +35,7 @@ class Landing extends Component {
         <hr className="my-4"/>
       </div>
       </Router>
-      </div>
+    </div>
     );
   }
 }
