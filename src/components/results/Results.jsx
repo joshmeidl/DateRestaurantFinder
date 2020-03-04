@@ -98,7 +98,7 @@ class Results extends Component {
           price={"$$$"}
           isOpen={true}
           categories={["Category1", "Category2", "Category3", "Category4"]}
-          name={"Taco Bell"}
+          name={"Nobu"}
           url={"tacobell.com"}
           distance={"10 miles"}
           image_url={
@@ -112,7 +112,7 @@ class Results extends Component {
           price={"$$$"}
           isOpen={false}
           categories={["Mexican", "Tacos"]}
-          name={"Baja Fresh Mexican Cuisine"}
+          name={"Perch"}
           url={"tacobell.com"}
           distance={"10 miles"}
           image_url={
@@ -126,7 +126,7 @@ class Results extends Component {
           price={"$$$"}
           isOpen={true}
           categories={["Category1", "Category2", "Category3", "Category4"]}
-          name={"Taco Bell"}
+          name={"The Palm Los Angeles"}
           url={"tacobell.com"}
           distance={"10 miles"}
           image_url={

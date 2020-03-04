@@ -12,7 +12,7 @@
   float: left;
 }
 .restaurantIMG {
-  object-fit: scale-down;
+  object-fit: contain;
   height: 10em;
   width: 15em;
 }
