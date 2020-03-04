@@ -1,6 +1,7 @@
 .question {
   color: whitesmoke;
-  background-color: silver;
+  /* background-color: silver; */
+  background: linear-gradient(#8a7474, #3d3f52);
   font-size: 2em;
   text-align: center;
   padding-top: 2%;
@@ -8,10 +9,16 @@
   margin: 1%;
   font-family: "Raleway";
 }
-
-.bold {
-  font-weight: bolder;
+.top {
+  border-width: 0.5px;
+  border-right: 0;
+  border-left: 0;
+  border-color: rgb(190, 176, 176);
+  border-style: solid;
+  margin-top: 1em;
+  padding: 1em 1.5em 0.5em 1.5em;
 }
+
 .quizTitle {
   color: whitesmoke;
   background-color: maroon;
@@ -29,4 +36,9 @@
 
 .select:focus {
   outline: none;
+}
+
+.middle {
+  display: flex;
+  justify-content: center;
 }

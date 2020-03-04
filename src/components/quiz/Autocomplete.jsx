@@ -29,6 +29,7 @@ class Autocomplete extends Component {
   onChange = e => {
     const { suggestions } = this.props;
     const userInput = e.currentTarget.value;
+    localStorage.setItem("food", userInput);
 
     // Filter our suggestions that don't contain the user's input
     const filteredSuggestions = suggestions.filter(
@@ -51,6 +52,7 @@ class Autocomplete extends Component {
       showSuggestions: false,
       userInput: e.currentTarget.innerText
     });
+    localStorage.setItem("food", e.currentTarget.innerText);
   };
 
   onKeyDown = e => {
@@ -131,11 +133,13 @@ class Autocomplete extends Component {
         <div className="input">
           <h1 className="question">{this.props.question}</h1>
           <input
+            name="food"
             type="text"
             className="answer"
             onChange={onChange}
             onKeyDown={onKeyDown}
             value={userInput}
+            placeholder="Enter type of food"
             required
           />
         {suggestionsListComponent}

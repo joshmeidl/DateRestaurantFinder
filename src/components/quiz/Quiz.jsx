@@ -12,6 +12,7 @@ class Quiz extends Component {
     super(props);
     this.state = {
       location: false,
+      loc: "",
       latitude: "",
       longitude: "",
       commute: "",
@@ -24,9 +25,9 @@ class Quiz extends Component {
   }
 
   handleChange(event) {
-    // this.setState({value: event.target.value});
     const {name, value} = event.target
     this.setState({ [name]: value })
+    localStorage.setItem(name, value);
   }
 
   handleSubmit(event) {
@@ -98,29 +99,24 @@ class Quiz extends Component {
       }
       
     });
-    const noLoc = <div className="input"><h1 className="question">What city do you live in?</h1><input name="location" type="text" required/></div>
+    const noLoc = <div className="input"><h1 className="question">What city do you live in?</h1><input name="loc" type="text" placeholder="City, State" onChange={this.handleChange} required/></div>
     return (
       <div>
         <h1 className="quizTitle">Restaurant Quiz</h1>
-        <hr />
-        <p className="bold">{important}</p>
-        <p>{msg}</p>
-        <hr />
-        <form method="GET" action="process.php">
-          {food}
-          {this.state.location ? '' : noLoc}
-          {select}
-          <button type="submit" className="submit">Submit</button>
-        </form>
-        {/* <Router>
-          <br></br>
-          <p className="lead">
-            <Link to="/Results" className="btn btn-primary btn-lg">
-              Submit
-            </Link>
-          </p>
-          <Route path="/Results" component={Results} />
-        </Router> */}
+        <div className="top">
+          <h5><strong>{important}</strong></h5>
+          <p>{msg}</p>
+        </div>
+        {food}
+        {this.state.location ? '' : noLoc}
+        {select}
+        <div className="middle">
+          <Router>
+              <Link to="/results">
+                <button type="submit" className="sub submit">Submit</button>
+              </Link>
+          </Router>
+        </div>
       </div>
     );
   }
