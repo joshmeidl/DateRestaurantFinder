@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Results.css";
-import { BrowserRouter as Router, Route, Link, Switch} from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 
 class Restaurant extends Component {
   constructor(props) {
@@ -55,27 +55,37 @@ class Restaurant extends Component {
   render() {
     return (
       <div>
-           <Router>
-        <div className="titleContainer">
-          <h1 className="restaurantTitle">{this.state.name}</h1>
-          <Link to="/expand" className="btn btn-link">Details</Link>
-          <img src={this.state.image_url} />
-        </div>
-        <Switch>
-          <Route path = "/expand">
-        <ul>
-          <li>
-            <p>{"cateogries: " + this.state.categories}</p>
-          </li>
-          <li>
-            <p>{"rating: " + this.state.rating}</p>
-          </li>
-          <li>
-            <p>{this.state.url}</p>
-          </li>
-        </ul>
-        </Route>
-        </Switch>
+        <Router>
+          <span>
+            <h1 className="restaurantTitle">{this.state.name}</h1>
+            <img className="restaurantIMG" src={this.state.image_url} />
+          </span>
+          <br></br>
+          <div>
+            <Link to="/expand" className="btn btn-link">
+              expand details
+            </Link>
+            <Link to="/" className="btn btn-link">
+              minimize details
+            </Link>
+          </div>
+          <Switch>
+            <Route path="/expand">
+              <hr />
+              <ul>
+                <li>
+                  <p>{"cateogries: " + this.state.categories}</p>
+                </li>
+                <li>
+                  <p>{"rating: " + this.state.rating}</p>
+                </li>
+                <li>
+                  <p>{this.state.url}</p>
+                </li>
+              </ul>
+            </Route>
+            <Route path="/"></Route>
+          </Switch>
         </Router>
       </div>
     );

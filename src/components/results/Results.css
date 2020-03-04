@@ -1,7 +1,16 @@
-.error{
+.error {
   color: red;
   font-size: 2em;
   font-family: sans-serif;
   font-style: italic;
+}
 
+.restaurantTitle {
+  font-size: 6em;
+  margin-right: 4em;
+  color: black;
+  float: left;
+}
+
+.restaurantIMG {
 }
