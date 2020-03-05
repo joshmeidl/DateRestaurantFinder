@@ -20,6 +20,7 @@ class Landing extends Component {
     return(
       <div>
         <Router>
+        <Navbar />
           <div>  
         <Switch>
             <Route exact path="/">

@@ -12,9 +12,9 @@ class Navbar extends Component {
       <div>
         <div className="header">
           <img className="logo" src={logo} alt="Logo" />
-          <h1 className="slogan">Restaurant Finder</h1>
-          <Link to="/quiz" className="links">Quiz</Link>
-          <Link to="/results" className="links">Results</Link>
+          <Link to="/" style={{color: "white"}}><h1 className="slogan">Restaurant Finder</h1></Link>
+          <Link to="/quiz" style={{color: "white"}} className="links">Quiz</Link>
+          <Link to="/results" style={{color: "white"}} className="links">Results</Link>
         </div>
       </div>
     );

@@ -12,6 +12,7 @@ class Quiz extends Component {
     super(props);
     this.state = {
       location: false,
+      food: "",
       loc: "",
       latitude: "",
       longitude: "",
@@ -31,8 +32,22 @@ class Quiz extends Component {
   }
 
   handleSubmit(event) {
-    alert("A name was submitted: " + this.state.value);
-    event.preventDefault();
+    if (this.state.location) {
+      if (this.state.latitude && this.state.longitude && this.state.food){
+        // return true;
+      } else {
+          alert('Fill out quiz completely');
+          return false;
+      }
+    }
+    else {
+      if (this.state.loc && this.state.food) {
+        // return true;
+      } else {
+          alert('Fill out quiz completely');
+          return false;
+      }
+    }
   }
 
   componentDidMount() {
@@ -41,7 +56,7 @@ class Quiz extends Component {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
         const loc = JSON.stringify(position);
-        console.log(loc);
+        console.log(position);
         console.log(lng);
         console.log(lat);
         this.setState({ location: true });
@@ -61,6 +76,7 @@ class Quiz extends Component {
         key={item.id}
         question={item.question}
         suggestions={item.answers}
+        handleChange={this.handleChange}
       />
     ));
     const select = SelectArray.map(item => {
@@ -130,7 +146,7 @@ class Quiz extends Component {
               <button
                 type="submit"
                 className="sub submit"
-                onClick={() => window.location.replace("/results")}
+                onClick={this.handleSubmit}
               >
                 Submit
               </button>

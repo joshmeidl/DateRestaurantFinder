@@ -21,7 +21,6 @@ class Home extends Component {
       "Going on a date, but can't find a restaurant? Our online quiz allows you and your date to find the restaurant most compatible for the two of you. Click the link below to start!";
     return (
       <div>
-        <Navbar />
         <div className="img">
           <h1 className="title">Date Night Helper</h1>
           <p className="paragraph lead">{msg}</p>

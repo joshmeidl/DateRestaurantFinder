@@ -1,7 +1,7 @@
 .question {
   color: whitesmoke;
   /* background-color: silver; */
-  background: linear-gradient(#8a7474, #3d3f52);
+  background: rgb(44, 44, 44);
   font-size: 2em;
   text-align: center;
   padding-top: 2%;

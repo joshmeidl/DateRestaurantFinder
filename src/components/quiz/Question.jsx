@@ -19,7 +19,7 @@ class Question extends React.Component {
     return (
       <div>
         <div className="buttonGroup">
-          <Autocomplete question={this.props.question} suggestions={this.state.List} />
+          <Autocomplete question={this.props.question} suggestions={this.state.List} handleChange={this.props.handleChange}/>
         </div>
       </div>
     );
