@@ -29,8 +29,8 @@ class Autocomplete extends Component {
   onChange = e => {
     const { suggestions } = this.props;
     const userInput = e.currentTarget.value;
-    // localStorage.setItem("food", userInput);
     this.props.handleChange(e);
+    localStorage.setItem("food", userInput);
     // Filter our suggestions that don't contain the user's input
     const filteredSuggestions = suggestions.filter(
       suggestion =>
@@ -52,8 +52,9 @@ class Autocomplete extends Component {
       showSuggestions: false,
       userInput: e.currentTarget.innerText
     });
-    // localStorage.setItem("food", e.currentTarget.innerText);
     this.props.handleChange(e);
+    localStorage.setItem("food", e.currentTarget.innerText);
+
   };
 
   onKeyDown = e => {
@@ -67,6 +68,7 @@ class Autocomplete extends Component {
         userInput: filteredSuggestions[activeSuggestion]
       });
       this.props.handleChange(e);
+      localStorage.setItem("food", this.state.userInput);
     }
     // User pressed the up arrow
     else if (e.keyCode === 38) {

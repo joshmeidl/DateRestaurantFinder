@@ -16,9 +16,9 @@ class Quiz extends Component {
       loc: "",
       latitude: "",
       longitude: "",
-      commute: "",
-      casual: "",
-      budget: "",
+      commute: "Delivery Please",
+      casual: "Casual",
+      budget: "$20",
       test: ""
     };
     this.handleChange = this.handleChange.bind(this);
@@ -34,7 +34,16 @@ class Quiz extends Component {
   handleSubmit(event) {
     if (this.state.location) {
       if (this.state.latitude && this.state.longitude && this.state.food){
-        // return true;
+        localStorage.setItem('latitude', this.state.latitude)
+        localStorage.setItem('longitude', this.state.longitude)
+
+        if (!localStorage.getItem('commute'))
+          localStorage.setItem('commute', this.state.commute)
+        if (!localStorage.getItem('casual'))
+          localStorage.setItem('casual', this.state.casual)
+        if (!localStorage.getItem('budget'))
+          localStorage.setItem('budget', this.state.budget)
+        window.location.replace("/results")
       } else {
           alert('Fill out quiz completely');
           return false;
@@ -42,7 +51,13 @@ class Quiz extends Component {
     }
     else {
       if (this.state.loc && this.state.food) {
-        // return true;
+        if (!localStorage.getItem('commute'))
+          localStorage.setItem('commute', this.state.commute)
+        if (!localStorage.getItem('casual'))
+          localStorage.setItem('casual', this.state.casual)
+        if (!localStorage.getItem('budget'))
+          localStorage.setItem('budget', this.state.budget)
+        window.location.replace("/results")
       } else {
           alert('Fill out quiz completely');
           return false;
@@ -51,15 +66,18 @@ class Quiz extends Component {
   }
 
   componentDidMount() {
+    localStorage.clear();
     navigator.geolocation.getCurrentPosition(
       position => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
-        const loc = JSON.stringify(position);
-        console.log(position);
-        console.log(lng);
-        console.log(lat);
-        this.setState({ location: true });
+        // const loc = JSON.stringify(position);
+        // console.log(position);
+        // console.log(lng);
+        // console.log(lat);
+        this.setState({ location: true, latitude: lat, longitude: lng });
+        // console.log(this.state.latitude)
+        // console.log(this.state.longitude)
       },
       error => {
         console.log("No location given");

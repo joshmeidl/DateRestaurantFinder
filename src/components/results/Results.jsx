@@ -9,6 +9,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import API_KEY from "./Credentials"
 
 class Results extends Component {
   constructor(props) {
@@ -17,13 +18,12 @@ class Results extends Component {
       data: []
     };
   }
-
+  
   componentDidMount() {
-    const API_Key =
-      "Bearer M42T3szZIG5AZIws_n8Y2XvvAXGZa6x77mq-kLwHs7z9U7dTpVX7_vfW7Azy8uiDKYxipXM9CePFA8m2CzsRtSEXXgHF2Sc7WiBAWu3lh5OLWkx0K3mpxli5DJ5UXnYx";
+    const key = API_KEY;
     const config = {
       headers: {
-        Authorization: API_Key,
+        Authorization: key,
         method: "GET"
       },
       params: {
@@ -31,32 +31,73 @@ class Results extends Component {
         location: "NYC"
       }
     };
-    // fetch("https://api.yelp.com/v3/businesses/search", config)
-    // .then(response => console.log(response.json()));
-    // .then(response => {
-    //   const {business} = response.data;
-    //   this.setState({data: business});
-    // });
 
-    let myurl =
-      "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=restaurant&location=boston";
+    console.log(localStorage.getItem('food'));
+    console.log(localStorage.getItem('loc'));
+    console.log(localStorage.getItem('latitude'));
+    console.log(localStorage.getItem('longitude'));
+    console.log(localStorage.getItem('commute'));
+    console.log(localStorage.getItem('casual'));
+    console.log(localStorage.getItem('budget'));
+
+
+    let uri = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10&term=" 
+              + encodeURI(localStorage.getItem('food'));
+
+    //Check formal or casual
+    if (localStorage.getItem('casual') === "Casual") {
+      uri += encodeURI(" food");
+    } else {
+      uri += encodeURI(" fancy restaurant");
+    }
+    //Check radius
+    if (localStorage.getItem('commute') === "Delivery Please") {
+      uri += encodeURI(" delivery");
+    } else {
+      let dis = parseInt(localStorage.getItem('commute')) * 1609
+      uri += "&radius=" + dis;
+    }
+    //Check latitude
+    if (localStorage.getItem('latitude')) {
+      uri += "&latitude=" + encodeURI(localStorage.getItem('latitude')) 
+            + "&longitude=" + encodeURI(localStorage.getItem('longitude')) 
+    } else {
+      uri += "&location=" + encodeURI(localStorage.getItem('loc'))
+    }
+    //Check price
+    if (localStorage.getItem('budget') === "$20") 
+      uri += "&price=1,2"
+    else if (localStorage.getItem('budget') === "$50") 
+      uri += "&price=1,2,3"
+    else if (localStorage.getItem('budget') === "$100") 
+      uri += "&price=1,2,3,4"
+    else
+      uri += "&price=1,2,3,4"
+    
+    //Check open now
+
+    //Limit
+    console.log(uri);
     let results;
     $.ajax({
-      url: myurl,
+      url: uri,
       headers: {
-        Authorization: API_Key
+        Authorization: key
       },
       method: "GET",
       dataType: "json",
       success: function(array) {
         console.log(array);
         results = array;
-      }
+        this.setState({
+          data: results
+        });
+      }.bind(this)
     });
-    this.setState({
-      data: results
-    });
+
   }
+
+ 
 
   displayData = () => {
     const msg = "Error: no results, please complete the quiz.";

@@ -3,7 +3,15 @@ import React, { Component } from 'react';
 class SelectQ extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      key: ""
+    }
+  }
 
+  componentDidMount() {
+    this.setState({
+      key: this.props.key
+    })
   }
 
   render() {
