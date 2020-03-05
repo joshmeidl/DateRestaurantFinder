@@ -41,22 +41,23 @@ class Results extends Component {
     console.log(localStorage.getItem('budget'));
 
 
-    let uri = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10&term=" 
-              + encodeURI(localStorage.getItem('food'));
-
-    //Check formal or casual
-    if (localStorage.getItem('casual') === "Casual") {
-      uri += encodeURI(" food");
-    } else {
-      uri += encodeURI(" fancy restaurant");
-    }
+    let uri;
     //Check radius
     if (localStorage.getItem('commute') === "Delivery Please") {
-      uri += encodeURI(" delivery");
+      uri = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/transactions/delivery/search?limit=10&term=" 
+              + encodeURI(localStorage.getItem('food'));
     } else {
       let dis = parseInt(localStorage.getItem('commute')) * 1609
-      uri += "&radius=" + dis;
-    }
+      uri  = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?limit=10" + 
+            "&radius=" + dis + "&term=" + encodeURI(localStorage.getItem('food'));
+    }   
+
+    //Check formal or casual
+    if (localStorage.getItem('casual') === "Casual") 
+      uri += encodeURI(" food");
+    else 
+      uri += encodeURI(" fancy restaurant");
+        
     //Check latitude
     if (localStorage.getItem('latitude')) {
       uri += "&latitude=" + encodeURI(localStorage.getItem('latitude')) 
@@ -75,8 +76,9 @@ class Results extends Component {
       uri += "&price=1,2,3,4"
     
     //Check open now
-
-    //Limit
+    if (localStorage.getItem('open') === "yes") 
+      uri += "&open_now=true"
+    
     console.log(uri);
     let results;
     $.ajax({
