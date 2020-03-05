@@ -67,8 +67,6 @@ class Autocomplete extends Component {
         showSuggestions: false,
         userInput: filteredSuggestions[activeSuggestion]
       });
-      this.props.handleChange(e);
-      localStorage.setItem("food", this.state.userInput);
     }
     // User pressed the up arrow
     else if (e.keyCode === 38) {
@@ -88,11 +86,16 @@ class Autocomplete extends Component {
     }
   };
 
+  onKeyUp = e => {
+    localStorage.setItem("food", this.state.userInput);
+  }
+
   render() {
     const {
       onChange,
       onClick,
       onKeyDown,
+      onKeyUp,
       state: {
         activeSuggestion,
         filteredSuggestions,
@@ -142,6 +145,7 @@ class Autocomplete extends Component {
             className="answer"
             onChange={onChange}
             onKeyDown={onKeyDown}
+            onKeyUp={onKeyUp}
             value={userInput}
             placeholder="Enter type of food"
             required

@@ -19,10 +19,17 @@ class Quiz extends Component {
       commute: "Delivery Please",
       casual: "Casual",
       budget: "$20",
-      test: ""
+      open: "yes"
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  setSelect = () => {
+    localStorage.setItem('commute', this.state.commute)
+    localStorage.setItem('casual', this.state.casual)
+    localStorage.setItem('budget', this.state.budget)
+    localStorage.setItem('open', this.state.open)
   }
 
   handleChange(event) {
@@ -32,52 +39,26 @@ class Quiz extends Component {
   }
 
   handleSubmit(event) {
-    if (this.state.location) {
-      if (this.state.latitude && this.state.longitude && this.state.food){
-        localStorage.setItem('latitude', this.state.latitude)
-        localStorage.setItem('longitude', this.state.longitude)
-
-        if (!localStorage.getItem('commute'))
-          localStorage.setItem('commute', this.state.commute)
-        if (!localStorage.getItem('casual'))
-          localStorage.setItem('casual', this.state.casual)
-        if (!localStorage.getItem('budget'))
-          localStorage.setItem('budget', this.state.budget)
-        window.location.replace("/results")
-      } else {
-          alert('Fill out quiz completely');
-          return false;
-      }
+    if ((this.state.latitude && this.state.longitude && this.state.food) || 
+        (this.state.loc && this.state.food)) {
+      window.location.replace("/results")
     }
     else {
-      if (this.state.loc && this.state.food) {
-        if (!localStorage.getItem('commute'))
-          localStorage.setItem('commute', this.state.commute)
-        if (!localStorage.getItem('casual'))
-          localStorage.setItem('casual', this.state.casual)
-        if (!localStorage.getItem('budget'))
-          localStorage.setItem('budget', this.state.budget)
-        window.location.replace("/results")
-      } else {
-          alert('Fill out quiz completely');
-          return false;
-      }
+      alert('Fill out quiz completely');
+      return false;
     }
   }
 
   componentDidMount() {
-    localStorage.clear();
+    localStorage.clear()
+    this.setSelect()
     navigator.geolocation.getCurrentPosition(
       position => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
-        // const loc = JSON.stringify(position);
-        // console.log(position);
-        // console.log(lng);
-        // console.log(lat);
         this.setState({ location: true, latitude: lat, longitude: lng });
-        // console.log(this.state.latitude)
-        // console.log(this.state.longitude)
+        localStorage.setItem('latitude', lat)
+        localStorage.setItem('longitude', lng)
       },
       error => {
         console.log("No location given");
@@ -97,43 +78,16 @@ class Quiz extends Component {
         handleChange={this.handleChange}
       />
     ));
-    const select = SelectArray.map(item => {
-      switch (item.id) {
-        case 0:
-          return (
-            <SelectQ
-              key={item.id}
-              name={item.name}
-              question={item.question}
-              options={item.answers}
-              val={this.state.commute}
-              handleChange={this.handleChange}
-            />
-          );
-        case 1:
-          return (
-            <SelectQ
-              key={item.id}
-              name={item.name}
-              question={item.question}
-              options={item.answers}
-              val={this.state.casual}
-              handleChange={this.handleChange}
-            />
-          );
-        case 2:
-          return (
-            <SelectQ
-              key={item.id}
-              name={item.name}
-              question={item.question}
-              options={item.answers}
-              val={this.state.budget}
-              handleChange={this.handleChange}
-            />
-          );
-      }
-    });
+    const select = SelectArray.map(item => 
+      <SelectQ
+        key={item.id}
+        name={item.name}
+        question={item.question}
+        options={item.answers}
+        handleChange={this.handleChange}
+      />
+    );
+
     const noLoc = (
       <div className="input">
         <h1 className="question">What city do you live in?</h1>
