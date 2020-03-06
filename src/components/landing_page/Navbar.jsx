@@ -12,9 +12,9 @@ class Navbar extends Component {
       <div>
         <div className="header">
           <img className="logo" src={logo} alt="Logo" />
-          <Link to="/" style={{color: "white"}}><h1 className="slogan">Restaurant Finder</h1></Link>
+          <Link to="/" style={{color: "white"}}><h1 className="slogan">Date Night</h1></Link>
           <Link to="/quiz" style={{color: "white"}} className="links">Quiz</Link>
-          <Link to="/results" style={{color: "white"}} className="links">Results</Link>
+          {localStorage.getItem('food') ? <Link to="/results" style={{color: "white"}} className="links">Results</Link> : ''}
         </div>
       </div>
     );
