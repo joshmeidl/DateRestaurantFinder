@@ -63,7 +63,7 @@ class Restaurant extends Component {
     const categories = (
       <div className="list-group">
         {this.state.categories.map(category => (
-          <p className="category">{category}</p>
+          <p className="category">{category.title}</p>
         ))}
       </div>
     );
@@ -71,62 +71,55 @@ class Restaurant extends Component {
   };
 
   formatDetails = () => {
-    return (
-      <Router>
-        {this.openStatus()}
-        <ol>
-          <li>{this.state.rating}</li>
-          <li>{this.state.price}</li>
-          <li>{this.state.distance}</li>
-        </ol>
-        <Link to="./restaurantWebsite" className="btn btn-link">
-          {this.state.url}
-        </Link>
-        <Switch>
-          <Route
-            path="/restaurantWebsite"
-            component={() => {
-              window.location.replace("www.google.com");
-              return null;
-            }}
-          />
-        </Switch>
-      </Router>
-    );
+    if (this.openStatus) {
+      return "Open";
+    } else {
+      return "Closed";
+    }
   };
 
   render() {
     return (
-      <div>
-        <Router>
-          <div className="media">
-            <button className="btn btn-sm btn-light">Save</button>
-            <div className="media-body">
-              <h5 className="restaurantTitle">{this.state.name}</h5>
-            </div>
+      <div className="restaurantContainer">
+        <div className="media">
+          <div className="media-body">
+            <h5 className="restaurantTitle">{this.state.name}</h5>
             {this.displayCategories()}
-            <img src={this.state.image_url} className="restaurantIMG" />
           </div>
-          <div className="expand">
-            <Link to="/expand" className="btn-sm btn-dark">
-              expand
-            </Link>
-            <Link to="/" className="btn-sm btn-outline-dark">
-              minimize
-            </Link>
-          </div>
-
-          <Switch>
-            <Route path="/expand">
-              <hr />
-              {this.formatDetails()}
-            </Route>
-            <Route path="/"></Route>
-          </Switch>
-        </Router>
+          <button
+            type="button"
+            className="btn-sm btn-light"
+            data-container="body"
+            data-toggle="popover"
+            data-placement="top"
+            data-content={this.formatDetails()}
+          >
+            Details
+          </button>
+          <img src={this.state.image_url} className="restaurantIMG" />
+        </div>
       </div>
     );
   }
 }
 
 export default Restaurant;
+
+{
+  /* <Switch>
+<Route path="/expand">
+  <hr />
+  {this.formatDetails()}
+</Route>
+<Route path="/"></Route>
+</Switch> */
+}
+
+{
+  /* <Link to="/expand" className="btn-sm btn-dark">
+expand
+</Link>
+<Link to="/" className="btn-sm btn-outline-dark">
+minimize
+</Link> */
+}

@@ -26,11 +26,11 @@ class Quiz extends Component {
   }
 
   setSelect = () => {
-    localStorage.setItem('commute', this.state.commute)
-    localStorage.setItem('casual', this.state.casual)
-    localStorage.setItem('budget', this.state.budget)
-    localStorage.setItem('open', this.state.open)
-  }
+    localStorage.setItem("commute", this.state.commute);
+    localStorage.setItem("casual", this.state.casual);
+    localStorage.setItem("budget", this.state.budget);
+    localStorage.setItem("open", this.state.open);
+  };
 
   handleChange(event) {
     const { name, value } = event.target;
@@ -39,26 +39,27 @@ class Quiz extends Component {
   }
 
   handleSubmit(event) {
-    if ((this.state.latitude && this.state.longitude && this.state.food) || 
-        (this.state.loc && this.state.food)) {
-      window.location.replace("/results")
-    }
-    else {
-      alert('Fill out quiz completely');
+    if (
+      (this.state.latitude && this.state.longitude && this.state.food) ||
+      (this.state.loc && this.state.food)
+    ) {
+      window.location.replace("/results/list");
+    } else {
+      alert("Fill out quiz completely");
       return false;
     }
   }
 
   componentDidMount() {
-    localStorage.clear()
-    this.setSelect()
+    localStorage.clear();
+    this.setSelect();
     navigator.geolocation.getCurrentPosition(
       position => {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
         this.setState({ location: true, latitude: lat, longitude: lng });
-        localStorage.setItem('latitude', lat)
-        localStorage.setItem('longitude', lng)
+        localStorage.setItem("latitude", lat);
+        localStorage.setItem("longitude", lng);
       },
       error => {
         console.log("No location given");
@@ -78,7 +79,7 @@ class Quiz extends Component {
         handleChange={this.handleChange}
       />
     ));
-    const select = SelectArray.map(item => 
+    const select = SelectArray.map(item => (
       <SelectQ
         key={item.id}
         name={item.name}
@@ -86,7 +87,7 @@ class Quiz extends Component {
         options={item.answers}
         handleChange={this.handleChange}
       />
-    );
+    ));
 
     const noLoc = (
       <div className="input">
@@ -114,7 +115,7 @@ class Quiz extends Component {
         {select}
         <div className="middle">
           <Router>
-            <Link to="/results">
+            <Link to="/results/list">
               <button
                 type="submit"
                 className="sub submit"

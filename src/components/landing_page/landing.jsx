@@ -17,25 +17,25 @@ class Landing extends Component {
     super(props);
   }
   render() {
-    return(
+    return (
       <div>
         <Router>
-        <Navbar />
-          <div>  
-        <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/quiz">
-              <Quiz />
-            </Route>
-            <Route path="/results">
-              <Results />
-            </Route>
-        </Switch>
-        </div>
-      </Router>
-    </div>
+          <Navbar />
+          <div>
+            <Switch>
+              <Route exact path="/">
+                <Home />
+              </Route>
+              <Route path="/quiz">
+                <Quiz />
+              </Route>
+              <Route path="/results/list">
+                <Results />
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </div>
     );
   }
 }

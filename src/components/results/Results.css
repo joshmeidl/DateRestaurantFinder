@@ -6,15 +6,21 @@
 }
 
 .restaurantTitle {
-  font-size: 4em;
-  margin-left: 0.5em;
-  color: black;
-  float: left;
+  font-size: 1em;
+  color: white;
+  background-color: #402f80;
 }
 .restaurantIMG {
   object-fit: contain;
   height: 10em;
   width: 15em;
+}
+
+.restaurantContainer {
+  width: 50%;
+  height: 10%;
+  float: left;
+  border-style: none;
 }
 
 .openText {
@@ -29,12 +35,37 @@
   font-size: 1em;
 }
 
+.list_mapToggle {
+  padding-top: 0em;
+  background-color: rgb(44, 44, 44);
+  height: 2em;
+}
+
+.lmbutton {
+  margin-left: 40%;
+  margin-right: 1em;
+  float: left;
+  color: white;
+}
+
+.lbutton {
+  color: white;
+}
+
 .category {
   margin-right: 0.5em;
-  background-color: #402f80;
-  color: white;
+  color: black;
 }
 
 .expand {
   margin-left: 6em;
+}
+
+.resultsTitle {
+  color: whitesmoke;
+  background-color: #402f80;
+  text-align: center;
+  font-family: "Raleway";
+  padding: 0.2em;
+  margin-bottom: 0em;
 }
