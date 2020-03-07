@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import "./Results.css";
 import Popover from '@material-ui/core/Popover';
 import Typography from '@material-ui/core/Typography';
@@ -43,7 +43,7 @@ const PopUp = React.forwardRef((props, ref) => {
           <p><i>Price:</i> {props.price}</p>
           <p><i>Address:</i> {props.address} </p>
           <p><i>Phone:</i> {props.phone}</p>
-          <a href={props.url} target="_blank"><i>Yelp Page</i></a>
+          <a href={props.url} target="_blank" rel="noopener noreferrer"><i>Yelp Page</i></a>
         </Typography>
       </Popover>
     </div>

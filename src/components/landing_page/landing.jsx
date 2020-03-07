@@ -13,9 +13,6 @@ import {
 } from "react-router-dom";
 
 class Landing extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div>

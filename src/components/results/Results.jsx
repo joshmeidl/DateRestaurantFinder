@@ -7,7 +7,6 @@ import {
   Route,
   Link,
   Switch,
-  Redirect
 } from "react-router-dom";
 import API_KEY from "./Credentials";
 
@@ -25,24 +24,6 @@ class Results extends Component {
 
   componentDidMount() {
     const key = API_KEY;
-    const config = {
-      headers: {
-        Authorization: key,
-        method: "GET"
-      },
-      params: {
-        term: "tacos",
-        location: "NYC"
-      }
-    };
-
-    console.log(localStorage.getItem("food"));
-    console.log(localStorage.getItem("loc"));
-    console.log(localStorage.getItem("latitude"));
-    console.log(localStorage.getItem("longitude"));
-    console.log(localStorage.getItem("commute"));
-    console.log(localStorage.getItem("casual"));
-    console.log(localStorage.getItem("budget"));
 
     let uri;
     //Check radius

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Answer from "./Answer";
 import Autocomplete from "./Autocomplete";
 import "./Quiz.css";
 

@@ -1,12 +1,5 @@
-import React, { Component, useRef } from "react";
+import React, { Component } from "react";
 import "./Results.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  Redirect
-} from "react-router-dom";
 import CaveIn from './CaveIn'
 import PopUp from './PopUp'
 import $ from 'jquery'
