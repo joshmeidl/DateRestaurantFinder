@@ -4,23 +4,34 @@
   font-family: sans-serif;
   font-style: italic;
 }
+@import url('https://fonts.googleapis.com/css?family=Sarabun&display=swap');
 
 .restaurantTitle {
-  font-size: 1em;
+  font-size: 2em;
+  padding: 0.5em;
   color: white;
   background-color: #402f80;
+  text-align: center;
+  font-family: 'Sarabun', sans-serif;
 }
+
 .restaurantIMG {
-  object-fit: contain;
-  height: 10em;
-  width: 15em;
+  object-fit: cover;
+  height: 15em; 
+  width: 20em;
+  margin: auto;
 }
 
 .restaurantContainer {
-  width: 50%;
-  height: 10%;
-  float: left;
-  border-style: none;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border-width: 0.5px;
+  /* border-top: 0; */
+  border-color: rgb(190, 176, 176);
+  border-style: solid; 
+  box-shadow: 5px 4px 6px 0px rgba(184,177,184,1); 
 }
 
 .openText {
@@ -52,13 +63,23 @@
   color: white;
 }
 
-.category {
-  margin-right: 0.5em;
-  color: black;
+.list-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
 }
 
-.expand {
-  margin-left: 6em;
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.category {
+  margin: 1em;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+  font-size: 1.2em;
+  color: black;
 }
 
 .resultsTitle {
@@ -68,4 +89,62 @@
   font-family: "Raleway";
   padding: 0.2em;
   margin-bottom: 0em;
+}
+
+.grid {
+  padding: 1em;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-row-gap: 5px;
+  grid-column-gap: 5px;
+}
+
+.uncontrolled, #PopoverFocus {
+  display: none;
+}
+
+#cave {
+  margin-bottom: 1em;
+}
+
+.cave {
+  display: flex;
+  justify-content: center;
+}
+
+
+@media (min-width: 768px) {
+  .restaurantTitle{
+    font-size: 2.8vw;
+  }
+
+  .grid {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+  }
+  .uncontrolled, #PopoverFocus {
+    display: block;
+    margin: auto;
+    margin-bottom: 1em;
+  }
+  .collapse, #cave {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .restaurantTitle{
+    font-size: 2.4vw;
+  }
+}
+
+@media (min-width: 1200px) {
+  .restaurantTitle{
+    font-size: 1.9vw;
+  }
+  .grid {
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+  }
 }

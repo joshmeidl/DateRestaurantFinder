@@ -49,7 +49,7 @@
   display: grid;
   grid-template-columns: 80px 200px 100px 100px;
   grid-template-rows: auto;
-  gap: 10px;
+  gap: 5px;
   align-items: center;
   font-family: 'Ubuntu', sans-serif;
   background-color: rgb(44, 44, 44);
@@ -63,6 +63,11 @@
 
 .slogan {
   font-size: 2em;
+  text-align: center;
+}
+
+.links {
+  text-align: center;
 }
 
 .submit {
