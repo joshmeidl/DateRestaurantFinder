@@ -69,7 +69,7 @@ class Restaurant extends Component {
   }
 
   popClick = () => {
-    if ($("#PopoverFocus").is(':visible')) this.popButton.current.focus();
+    if ($("#popup").is(':visible')) this.popButton.current.click();
     else this.caveButton.current.click();
   }
 

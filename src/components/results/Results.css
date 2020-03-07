@@ -1,10 +1,8 @@
 .error {
-  color: red;
-  font-size: 2em;
-  font-family: sans-serif;
+  font-size: 4em;
   font-style: italic;
+  text-align: center;
 }
-@import url('https://fonts.googleapis.com/css?family=Sarabun&display=swap');
 
 .restaurantTitle {
   font-size: 2em;
@@ -28,7 +26,6 @@
   flex-wrap: wrap;
   flex-direction: column;
   border-width: 0.5px;
-  /* border-top: 0; */
   border-color: rgb(190, 176, 176);
   border-style: solid; 
   box-shadow: 5px 4px 6px 0px rgba(184,177,184,1); 
@@ -47,20 +44,20 @@
 }
 
 .list_mapToggle {
-  padding-top: 0em;
   background-color: rgb(44, 44, 44);
   height: 2em;
+  display: flex;
+  justify-content: center;
 }
 
 .lmbutton {
-  margin-left: 40%;
-  margin-right: 1em;
-  float: left;
   color: white;
+  margin-right: 0.5em;
 }
 
 .lbutton {
   color: white;
+  margin-left: 1em;
 }
 
 .list-group {
@@ -100,12 +97,18 @@ p {
   grid-column-gap: 5px;
 }
 
-.uncontrolled, #PopoverFocus {
+#popup, .MuiPaper-root {
   display: none;
 }
 
 #cave {
   margin-bottom: 1em;
+  box-shadow: 3px 3px 5px 0px rgba(184,177,184,0.75);
+  background-color: #f16262;
+  color: azure;
+  width: 5em;
+  font-size: 1.3em;
+  padding: 0.3em;
 }
 
 .cave {
@@ -113,8 +116,11 @@ p {
   justify-content: center;
 }
 
-.collapse, .show {
-  /* max-width: 30%; */
+#cave:hover,
+#cave:focus,
+#popup:hover,
+#popup:focus {
+  background: #830b0b;
 }
 
 @media (min-width: 768px) {
@@ -126,19 +132,36 @@ p {
     grid-template-columns: auto auto;
     grid-template-rows: auto;
   }
-  .uncontrolled, #PopoverFocus {
+
+  .MuiPaper-root {
+    display: block;
+  }
+
+  #popup {
     display: block;
     margin: auto;
     margin-bottom: 1em;
+    box-shadow: 3px 3px 5px 0px rgba(184,177,184,0.75);
+    background-color: #f16262;
+    color: azure;
+    width: 5em;
+    font-size: 2.4vw;
+    padding: 0.3em;
   }
-  .collapse, #cave {
+
+  #cave, .collapse {
     display: none;
   }
+
 }
 
 @media (min-width: 992px) {
   .restaurantTitle{
     font-size: 2.4vw;
+  }
+
+  #popup {
+    font-size: 2vw;
   }
 }
 
@@ -149,5 +172,8 @@ p {
   .grid {
     grid-template-columns: auto auto auto;
     grid-template-rows: auto;
+  }
+  #popup {
+    font-size: 1.5em;
   }
 }

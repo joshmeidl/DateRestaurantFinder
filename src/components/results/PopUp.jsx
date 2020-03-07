@@ -1,38 +1,50 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Button, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
+import React, { useState, useRef } from 'react';
 import "./Results.css";
+import Popover from '@material-ui/core/Popover';
+import Typography from '@material-ui/core/Typography';
 
 const PopUp = React.forwardRef((props, ref) => {
-  const [popoverOpen, setPopoverOpen] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const toggle = () => setPopoverOpen(!popoverOpen);
+  const handleClick = event => {
+    setAnchorEl(event.currentTarget);
+  };
 
-  useEffect(() => {
-    // your post layout code (or 'effect') here.
-    // document.getElementById(props.id.substring(0,5)).target = props.id
-  },
-  // array of variables that can trigger an update if they change. Pass an
-  // an empty array if you just want to run it once after component mounted. 
-  [])
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const open = Boolean(anchorEl);
+  const id = open ? props.id : undefined;
 
   return (
     <div>
-      <button id={"Popover-" + props.id} type="button">
-        Details
-      </button>
-      <Popover 
-        // trigger="focus hover click" 
-        placement="bottom"
-        isOpen={popoverOpen}
-        toggle={toggle}
-        target={"Popover-" + props.id}>
-        <PopoverBody>
-          <h3>Rating: {props.rating}</h3>
-          <h5>Price: {props.price}</h5>
-          <h5>Address: {props.address} </h5>
-          <h5>Phone: {props.phone}</h5>
-          <a href={props.url} target="_blank">Yelp Page</a>
-        </PopoverBody>
+      <div className="popup">
+        <button id="popup" aria-describedby={id} ref={ref} variant="contained" onMouseEnter={handleClick} onClick={handleClick}>
+          Details
+        </button>
+      </div>
+      <Popover
+        id={id}
+        open={open}
+        anchorEl={anchorEl}
+        onClose={handleClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'center',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'center',
+        }}
+      >
+        <Typography style={{padding: "1em", fontSize: "1.2em"}} component={'h1'} onMouseLeave={handleClose}>
+          <p><i>Rating:</i> {props.rating}</p>
+          <p><i>Price:</i> {props.price}</p>
+          <p><i>Address:</i> {props.address} </p>
+          <p><i>Phone:</i> {props.phone}</p>
+          <a href={props.url} target="_blank"><i>Yelp Page</i></a>
+        </Typography>
       </Popover>
     </div>
   );

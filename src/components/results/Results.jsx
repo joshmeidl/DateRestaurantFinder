@@ -17,7 +17,8 @@ class Results extends Component {
     this.state = {
       data: {
         total: 0,
-        businesses: []
+        businesses: [],
+        ajaxError: false
       }
     };
   }
@@ -92,13 +93,17 @@ class Results extends Component {
       method: "GET",
       dataType: "json",
       success: function(array) {
-        console.log(array);
-        console.log(array.businesses);
         results = array;
         this.setState({
+          total: results.length,
           data: results
         });
-      }.bind(this)
+      }.bind(this),
+      error: function(xhr) {
+        this.setState({
+          ajaxError: true
+        })
+      }.bind(this) 
     });
   }
 
@@ -107,19 +112,27 @@ class Results extends Component {
   }
 
   render() {
-    console.log(this.state.data);
-    const msg = "Error: no results, please complete the quiz.";
+    const msg = "No results found, please complete the quiz again.";
+    const error = "Sorry Server Error! Try again later."
     let restaurants;
-    if (!this.state.data) {
+    if (this.state.ajaxError) {
       restaurants = (
         <span>
-          <h1 className="error">{msg}</h1>
+          <h1 className="text-danger error">{error}</h1>
+        </span>
+      );
+    }
+    else if (!this.state.total) {
+      restaurants = (
+        <span>
+          <h1 className="text-danger error">{msg}</h1>
           <Link to="/quiz" className="badge badge-light">
             QUIZ
           </Link>
         </span>
       );
-    } else {
+    } 
+    else {
       restaurants = this.state.data.businesses.map(restaurant => (
         <Restaurant
           key={restaurant.id}
@@ -139,7 +152,7 @@ class Results extends Component {
     }
     return (
       <div>
-        <h1 className="resultsTitle">Date Night Restaurant Finder Results </h1>
+        <h1 className="resultsTitle">Restaurant Finder Results</h1>
         <Router>
           <div className="list_mapToggle">
             <Link to="/results/list" className="lmbutton">

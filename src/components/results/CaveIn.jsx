@@ -15,13 +15,13 @@ const CaveIn = React.forwardRef((props, ref) => {
         </button>
       </div>
       <Collapse isOpen={isOpen}>
-        <Card className="cardbody">
+        <Card style={{fontSize: "1.2em"}}>
           <CardBody>
-          <h3>Rating: {props.rating}</h3>
-          <h5>Price: {props.price}</h5>
-          <h5>Address: {props.address} </h5>
-          <h5>Phone: {props.phone}</h5>
-          <a href={props.url} target="_blank">Yelp Page</a>
+          <p><i>Rating:</i> {props.rating}</p>
+          <p><i>Price:</i> {props.price}</p>
+          <p><i>Address:</i> {props.address} </p>
+          <p><i>Phone:</i> {props.phone}</p>
+          <a href={props.url} target="_blank"><i>Yelp Page</i></a>
           </CardBody>
         </Card>
       </Collapse>
