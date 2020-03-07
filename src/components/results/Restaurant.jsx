@@ -39,9 +39,9 @@ class Restaurant extends Component {
     if (location.address1) 
       address += location.address1;
     if (location.address2) 
-      address += location.address2;
+      address += " " + location.address2;
     if (location.address3) 
-      address += location.address3;
+      address += " " + location.address3;
     if (location.city) 
       address += ", " + location.city;
     if (location.state)

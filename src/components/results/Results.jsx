@@ -95,8 +95,8 @@ class Results extends Component {
       success: function(array) {
         results = array;
         this.setState({
-          total: results.length,
-          data: results
+          data: results,
+          total: results.length
         });
       }.bind(this),
       error: function(xhr) {
@@ -122,16 +122,16 @@ class Results extends Component {
         </span>
       );
     }
-    else if (!this.state.total) {
-      restaurants = (
-        <span>
-          <h1 className="text-danger error">{msg}</h1>
-          <Link to="/quiz" style={{marginLeft: "50%", padding: "1em", fontSize:"1.2em"}} className="badge badge-light">
-            QUIZ
-          </Link>
-        </span>
-      );
-    } 
+    // else if (!this.state.total) {
+    //   restaurants = (
+    //     <span>
+    //       <h1 className="text-danger error">{msg}</h1>
+    //       <Link to="/quiz" style={{marginLeft: "50%", padding: "1em", fontSize:"1.2em"}} className="badge badge-light">
+    //         QUIZ
+    //       </Link>
+    //     </span>
+    //   );
+    // } 
     else {
       restaurants = this.state.data.businesses.map(restaurant => (
         <Restaurant
