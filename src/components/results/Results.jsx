@@ -125,7 +125,7 @@ class Results extends Component {
           key={restaurant.id}
           id={restaurant.id}
           rating={restaurant.rating}
-          phone={restaurant.phone}
+          phone={restaurant.display_phone}
           isOpen={!restaurant.is_closed}
           price={restaurant.price}
           categories={restaurant.categories}
@@ -133,6 +133,7 @@ class Results extends Component {
           url={restaurant.url}
           distance={restaurant.distance}
           image_url={restaurant.image_url}
+          location={restaurant.location}
         />
       ));
     }
