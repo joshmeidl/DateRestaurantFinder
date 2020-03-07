@@ -126,7 +126,7 @@ class Results extends Component {
       restaurants = (
         <span>
           <h1 className="text-danger error">{msg}</h1>
-          <Link to="/quiz" className="badge badge-light">
+          <Link to="/quiz" style={{marginLeft: "50%", padding: "1em", fontSize:"1.2em"}} className="badge badge-light">
             QUIZ
           </Link>
         </span>
