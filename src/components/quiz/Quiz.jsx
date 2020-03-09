@@ -19,7 +19,7 @@ class Quiz extends Component {
       commute: "Delivery Please",
       casual: "Casual",
       budget: "$20",
-      open: "yes"
+      post: "Drinks"
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,7 +29,7 @@ class Quiz extends Component {
     localStorage.setItem("commute", this.state.commute);
     localStorage.setItem("casual", this.state.casual);
     localStorage.setItem("budget", this.state.budget);
-    localStorage.setItem("open", this.state.open);
+    localStorage.setItem("post", this.state.open);
   };
 
   handleChange(event) {
@@ -43,7 +43,6 @@ class Quiz extends Component {
       (this.state.latitude && this.state.longitude && this.state.food) ||
       (this.state.loc && this.state.food)
     ) {
-      // window.location.replace("/results");
     } else {
       alert("Fill out quiz completely");
       return false;

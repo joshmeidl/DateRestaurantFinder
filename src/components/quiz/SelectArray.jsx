@@ -27,9 +27,9 @@ const SelectArray = [
   },
   {
     id: 3,
-    name: "open",
-    question: "Open Now?",
-    answers: ["yes", "no"]
+    name: "post",
+    question: "What's happening after dinner?",
+    answers: ["Drinks", "Ice Cream", "Netflix and Chill", "Nothing", "Stargazing"]
   }
 ];
 
