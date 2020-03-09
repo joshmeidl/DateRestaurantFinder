@@ -61,6 +61,9 @@ class Results extends Component {
     else if (localStorage.getItem("budget") === "$100") uri += "&price=1,2,3,4";
     else uri += "&price=1,2,3,4";
 
+    //Check open now
+    if (localStorage.getItem("open") === "yes") uri += "&open_now=true";
+
     console.log(uri);
     let results;
     $.ajax({

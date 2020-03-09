@@ -4,13 +4,13 @@ const SelectArray = [
     name: "commute",
     question: "How far are you willing to commute?",
     answers: [
-      "Delivery Please",
       "1 mile",
       "5 miles",
       "10 miles",
       "15 miles",
       "20 miles",
-      "25 miles"
+      "25 miles",
+      "Delivery Please"
     ]
   },
   {
@@ -27,6 +27,12 @@ const SelectArray = [
   },
   {
     id: 3,
+    name: "open",
+    question: "Open Now?",
+    answers: ["yes", "no"]
+  },
+  {
+    id: 4,
     name: "post",
     question: "What's happening after dinner?",
     answers: ["Drinks", "Ice Cream", "Netflix and Chill", "Nothing", "Stargazing"]

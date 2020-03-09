@@ -16,9 +16,10 @@ class Quiz extends Component {
       loc: "",
       latitude: "",
       longitude: "",
-      commute: "Delivery Please",
+      commute: "1 mile",
       casual: "Casual",
       budget: "$20",
+      open: "yes",
       post: "Drinks"
     };
     this.handleChange = this.handleChange.bind(this);
@@ -29,6 +30,7 @@ class Quiz extends Component {
     localStorage.setItem("commute", this.state.commute);
     localStorage.setItem("casual", this.state.casual);
     localStorage.setItem("budget", this.state.budget);
+    localStorage.setItem("open", this.state.open);
     localStorage.setItem("post", this.state.open);
   };
 

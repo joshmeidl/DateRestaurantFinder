@@ -25,7 +25,7 @@ class Home extends Component {
           <h1 className="title">Date Night Helper</h1>
           <p className="paragraph lead">{msg}</p>
           <Link to="/quiz"><button className="submit">Find Restaurants</button></Link>
-          <p style={{marginTop: "20%", color: "white"}}>Built by Aaqib Ismail and Josh Meidl</p>
+          <p style={{marginTop: "5%", color: "white"}}>Built by Aaqib Ismail and Josh Meidl</p>
         </div>
       </div>
     );
