@@ -134,7 +134,7 @@ class Results extends Component {
     return (
       <div>
         <h1 className="resultsTitle">Restaurant Finder Results</h1>
-        <Router>
+        {/* <Router basename={process.env.PUBLIC_URL}>
           <div className="list_mapToggle">
             <Link to="/results/list" className="lmbutton">
               List View
@@ -144,15 +144,15 @@ class Results extends Component {
             </Link>
           </div>
           <Switch>
-            <Route exact path="/results/list">
+            <Route exact path="/results/list"> */}
               <hr />
               <div className="grid">
                 {restaurants}
               </div>
-            </Route>
+            {/* </Route>
             <Route path="/results/map">{this.map()}</Route>
           </Switch>
-        </Router>
+        </Router> */}
         <hr />
       </div>
     );

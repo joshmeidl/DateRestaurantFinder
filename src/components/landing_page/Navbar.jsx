@@ -11,12 +11,12 @@ class Navbar extends Component {
           <Link to="/" style={{ color: "white" }}>
             <h1 className="slogan">Date Night</h1>
           </Link>
-          <Link to="/quiz" style={{ color: "white" }} className="links">
+          {/* <Link to="/quiz" style={{ color: "white" }} className="links">
             Quiz
-          </Link>
+          </Link> */}
           {localStorage.getItem("food") ? (
             <Link
-              to="/results/list"
+              to="/results"
               style={{ color: "white" }}
               className="links"
             >

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import Navbar from "./Navbar.jsx";
-import Quiz from "./../quiz/Quiz.jsx";
+import Navbar from "./../landing_page/Navbar";
+import Quiz from "./Quiz.jsx";
 import Results from "./../results/Results.jsx";
-import Home from "./home.jsx";
-import QuizLanding from "./../quiz/quizLanding"
+import Home from "./../landing_page/home";
 
 import {
   BrowserRouter as Router,
@@ -13,19 +12,15 @@ import {
   Redirect
 } from "react-router-dom";
 
-class Landing extends Component {
+class QuizLanding extends Component {
   render() {
     return (
       <div>
         <Router basename={process.env.PUBLIC_URL}>
-          <Navbar />
           <div>
             <Switch>
-              <Route exact path="/">
-                <Home />
-              </Route>
               <Route path="/quiz">
-                <QuizLanding />
+                <Quiz />
               </Route>
               <Route path="/results">
                 <Results />
@@ -38,4 +33,4 @@ class Landing extends Component {
   }
 }
 
-export default Landing;
+export default QuizLanding;

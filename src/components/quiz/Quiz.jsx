@@ -4,7 +4,7 @@ import FoodTypes from "./FoodTypes";
 import SelectArray from "./SelectArray";
 import Results from "./../results/Results.jsx";
 import "./Quiz.css";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
 import SelectQ from "./SelectQ";
 
 class Quiz extends Component {
@@ -43,7 +43,7 @@ class Quiz extends Component {
       (this.state.latitude && this.state.longitude && this.state.food) ||
       (this.state.loc && this.state.food)
     ) {
-      window.location.replace("/results/list");
+      // window.location.replace("/results");
     } else {
       alert("Fill out quiz completely");
       return false;
@@ -114,17 +114,29 @@ class Quiz extends Component {
         {this.state.location ? "" : noLoc}
         {select}
         <div className="middle">
-          <Router>
-            <Link to="/results/list">
-              <button
-                type="submit"
-                className="sub submit"
-                onClick={this.handleSubmit}
-              >
-                Submit
-              </button>
-            </Link>
-          </Router>
+          {
+            (this.state.latitude && this.state.longitude && this.state.food) ||
+            (this.state.loc && this.state.food)
+          ? 
+            <Link to="/results">
+            <button
+              type="button"
+              className="sub submit"
+              onClick={this.handleSubmit}
+            >
+              Submit
+            </button>
+          </Link>
+          : <Link to="/quiz">
+          <button
+            type="button"
+            className="sub submit"
+            onClick={this.handleSubmit}
+          >
+            Submit
+          </button>
+        </Link>}
+           
         </div>
       </div>
     );
