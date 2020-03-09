@@ -12,7 +12,7 @@ const FoodTypes = [
       "Barbeque",
       "Brazilian",
       "Bistros",
-      "Breaksfast",
+      "Breakfast",
       "Brunch",
       "British",
       "Buffets",

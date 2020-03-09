@@ -17,7 +17,10 @@ class Results extends Component {
       data: {
         total: 0,
         businesses: [],
-        ajaxError: false
+        ajaxError: false,
+        processed: false,
+        found: true,
+        updated: false
       }
     };
   }
@@ -79,6 +82,13 @@ class Results extends Component {
           data: results,
           total: results.length
         });
+        if (!this.state.data.businesses.length && !this.state.updated) {
+          this.setState({
+            processed: true,
+            found: false,
+            updated: true
+          })
+        }
       }.bind(this),
       error: function(xhr) {
         this.setState({
@@ -96,6 +106,11 @@ class Results extends Component {
     const msg = "No results found, please complete the quiz again.";
     const error = "Sorry Server Error! Try again later."
     let restaurants;
+    let eMessage = (
+      <span>
+        <h1 className="text-danger error">{msg}</h1>
+      </span>
+    );
     if (this.state.ajaxError) {
       restaurants = (
         <span>
@@ -103,16 +118,13 @@ class Results extends Component {
         </span>
       );
     }
-    // else if (!this.state.total) {
-    //   restaurants = (
-    //     <span>
-    //       <h1 className="text-danger error">{msg}</h1>
-    //       <Link to="/quiz" style={{marginLeft: "50%", padding: "1em", fontSize:"1.2em"}} className="badge badge-light">
-    //         QUIZ
-    //       </Link>
-    //     </span>
-    //   );
-    // } 
+    else if (!this.state.data.businesses.length) {
+      restaurants = (
+        <span>
+          <h1 className="text-info error">Loading...</h1>
+        </span>
+      );
+    }
     else {
       restaurants = this.state.data.businesses.map(restaurant => (
         <Restaurant
@@ -130,6 +142,13 @@ class Results extends Component {
           location={restaurant.location}
         />
       ));
+      if (this.state.processed && !this.state.found) {
+        eMessage = (
+          <span>
+            <h1 className="text-danger error">{msg}</h1>
+          </span>
+        );
+      }  
     }
     return (
       <div>
@@ -148,6 +167,7 @@ class Results extends Component {
               <hr />
               <div className="grid">
                 {restaurants}
+                {this.state.processed && !this.state.found ? eMessage : ''}
               </div>
             {/* </Route>
             <Route path="/results/map">{this.map()}</Route>
